@@ -1,0 +1,632 @@
+{
+  "hideout": [
+    {
+      "npc": "biblio1",
+      "questName": "no_quest",
+      "textID": "no_quest",
+      "nextID": "",
+      "text": [
+        "Another set of blue books.\nSome title refer to name of planets and stars..."
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "biblio2",
+      "questName": "no_quest",
+      "textID": "no_quest",
+      "nextID": "",
+      "text": [
+        "I can't really open them, but here some titles:\n\"Dogme et Rituel de la haute magie\" &\n\"Formulaire de haute magie\"\n"
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "biblio3",
+      "questName": "no_quest",
+      "textID": "no_quest",
+      "nextID": "no_quest1",
+      "text": [
+        "How do you pull a book with no body?"
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "biblio3",
+      "questName": "no_quest",
+      "textID": "no_quest1",
+      "nextID": "",
+      "text": [
+        "I can't move those until I have a physical form!"
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "book1",
+      "questName": "no_quest",
+      "textID": "no_quest",
+      "nextID": "no_quest1",
+      "text": [
+        "-- The Element of Fire.\nFire is the purest and most noble of all elements. --",
+        "-- All fires are truly divines --"
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "book1",
+      "questName": "no_quest",
+      "textID": "no_quest1",
+      "nextID": "",
+      "text": [
+        "Could this creature be the ancestor of the phenix?\nThe book mentions how the salamander is a phenix that long forgot how to fly."
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "book2",
+      "questName": "Mysterious cube",
+      "textID": "Mysterious cube",
+      "nextID": "",
+      "text": [
+        "Some early cryptographic theories.\nThere's various symbols, arrange in\ndiffrent way to form hidden alphabets."
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "",
+      "questName": "",
+      "textID": "",
+      "nextID": "",
+      "text": [
+        ""
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "cube",
+      "questName": "no_quest",
+      "textID": "no_quest",
+      "nextID": "",
+      "text": [
+        "Why put this strange cube on a pedestal?"
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "cube",
+      "questName": "Hidden sequence",
+      "textID": "Hidden sequence",
+      "nextID": "",
+      "text": [
+        "The strange cube seem to react to your presence."
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "cube",
+      "questName": "Hideout",
+      "textID": "Hideout",
+      "nextID": "",
+      "text": [
+        "There's a strange cube displayed on this column.\nIt is probably made out of marble, perhaps granite?"
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "cube",
+      "questName": "Inside",
+      "textID": "Inside",
+      "nextID": "",
+      "text": [
+        "There's something floating inside!",
+        "Let's try to reach it..."
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "cube",
+      "questName": "Mysterious cube",
+      "textID": "Mysterious cube",
+      "nextID": "",
+      "text": [
+        "This is unmistakely the cube from the scroll.",
+        "Maybe it would be smarter to find more information before trying anything.\nWho knows what this thing really is..."
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "guild_post",
+      "questName": "no_quest",
+      "textID": "no_quest",
+      "nextID": "",
+      "text": [
+        "On this wall are engraved the names of longtime contributor to the guild",
+        "Tyler Vitanova - The Bit Station\nRainWarner88 - anonymus fan"
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "intro",
+      "questName": "Emerge",
+      "textID": "Emerge",
+      "nextID": "",
+      "text": [
+        "You emerge from the darkness into a dim space.",
+        "Something is strange...     \nAs you try to move around, you realize that you're not walking,\nbut floating...",
+        "You can feel that the air is warm and humid,\nLike if the air particules were moving through you.",
+        "You're not you...\nOr not what you believe you once was.",
+        "Where is your body? Where are you?"
+      ],
+      "result": [
+        "completeQuest",
+        89,
+        "addQuest",
+        90
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "parchemin1",
+      "questName": "Mysterious cube",
+      "textID": "Mysterious cube",
+      "nextID": "",
+      "text": [
+        "You might have seen these symbols on the mysterious cube.\nCould they be some kind of letters?"
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "parchemin1",
+      "questName": "Hidden sequence",
+      "textID": "Hidden sequence",
+      "nextID": "",
+      "text": [
+        "You might have seen these symbols on the mysterious cube.\nCould they be some kind of letters?"
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "parchemin1",
+      "questName": "no_quest",
+      "textID": "no_quest",
+      "nextID": "",
+      "text": [
+        "Some cryptographic symbols are displayed on the wall."
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": 1
+    },
+    {
+      "npc": "parchemin2",
+      "questName": "Mysterious cube",
+      "textID": "Mysterious cube",
+      "nextID": "",
+      "text": [
+        "This looks like a sequence.\nMaybe that's useful to unlock the strange cube?"
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "parchemin2",
+      "questName": "Hidden sequence",
+      "textID": "Hidden sequence",
+      "nextID": "",
+      "text": [
+        "This looks like a sequence.\nMaybe that's useful to unlock the strange cube?"
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "parchemin2",
+      "questName": "no_quest",
+      "textID": "no_quest",
+      "nextID": "",
+      "text": [
+        "I wouldn't know how to read that."
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": 1
+    },
+    {
+      "npc": "parchemin3",
+      "questName": "Mysterious cube",
+      "textID": "Mysterious cube",
+      "nextID": "",
+      "text": [
+        "Another strange diagram. \nI wonder how those number are related to the writing on that artefact."
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "parchemin3",
+      "questName": "Hidden sequence",
+      "textID": "Hidden sequence",
+      "nextID": "",
+      "text": [
+        "Another strange diagram. \nI wonder how those number are related to the writing on that artefact."
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "parchemin3",
+      "questName": "no_quest",
+      "textID": "no_quest",
+      "nextID": "",
+      "text": [
+        "This page is filled with strange symbols. "
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": 1
+    },
+    {
+      "npc": "pile1",
+      "questName": "no_quest",
+      "textID": "no_quest",
+      "nextID": "",
+      "text": [
+        "Just some more books."
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "presse",
+      "questName": "no_quest",
+      "textID": "no_quest",
+      "nextID": "",
+      "text": [
+        "A large format printing press.\nA bunch of scrolls are lying around.\nSome of them are probably ink tests, prototype, etc."
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "presse",
+      "questName": "Mysterious cube",
+      "textID": "Mysterious cube",
+      "nextID": "",
+      "text": [
+        "The press is not related to the cube"
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "s_mystere",
+      "questName": "Mysterious cube",
+      "textID": "Mysterious cube",
+      "nextID": "",
+      "text": [
+        "There's got to be a way to unlock this thing."
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "s_mystere",
+      "questName": "Hideout",
+      "textID": "Hideout",
+      "nextID": "",
+      "text": [
+        "Could this be the strange cube in the middle of the room?",
+        "There's mentions of unlocking it...\nStill, I have no clue how to decypher the meaning of those strange symbols."
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "s_sable",
+      "questName": "no_quest",
+      "textID": "no_quest",
+      "nextID": "",
+      "text": [
+        "The scroll on the wall is showing some strange device,\nperhaps something to orient yourself a desert?"
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "scroll_fade",
+      "questName": "no_quest",
+      "textID": "no_quest",
+      "nextID": "",
+      "text": [
+        "This scroll is too faded. I can't see anything."
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "scroll_pile1",
+      "questName": "no_quest",
+      "textID": "no_quest",
+      "nextID": "",
+      "text": [
+        "I wish I could open those."
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "scroll_pile2",
+      "questName": "no_quest",
+      "textID": "no_quest",
+      "nextID": "",
+      "text": [
+        "They're sealed."
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "alchi1",
+      "questName": "no_quest",
+      "textID": "no_quest",
+      "nextID": "no_quest1",
+      "text": [
+        "I think those are alembics.\nThey are used to distill achool."
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "alchi1",
+      "questName": "no_quest",
+      "textID": "no_quest1",
+      "nextID": "",
+      "text": [
+        "I wonder what they're doing with those here.\nIt doesn't even smell like alchool."
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "",
+      "questName": "no_quest",
+      "textID": "no_quest",
+      "nextID": "",
+      "text": [
+        ""
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "",
+      "questName": "no_quest",
+      "textID": "no_quest",
+      "nextID": "",
+      "text": [
+        ""
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "",
+      "questName": "no_quest",
+      "textID": "no_quest",
+      "nextID": "",
+      "text": [
+        ""
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "",
+      "questName": "no_quest",
+      "textID": "no_quest",
+      "nextID": "",
+      "text": [
+        ""
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "",
+      "questName": "no_quest",
+      "textID": "no_quest",
+      "nextID": "",
+      "text": [
+        ""
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "",
+      "questName": "no_quest",
+      "textID": "no_quest",
+      "nextID": "",
+      "text": [
+        ""
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "",
+      "questName": "no_quest",
+      "textID": "no_quest",
+      "nextID": "",
+      "text": [
+        ""
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "",
+      "questName": "no_quest",
+      "textID": "no_quest",
+      "nextID": "",
+      "text": [
+        ""
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    },
+    {
+      "npc": "",
+      "questName": "no_quest",
+      "textID": "no_quest",
+      "nextID": "",
+      "text": [
+        ""
+      ],
+      "result": [
+        ""
+      ],
+      "condition": "",
+      "noPortrait": ""
+    }
+  ]
+}
