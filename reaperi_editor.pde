@@ -8,9 +8,10 @@ PVector   mouseDiff = new PVector();
 
 
 public void setup(){
-  size(1000, 1000, JAVA2D);
+  size(1000, 1000, P2D);
   mouse = new PVector(mouseX, mouseY);
   setMapGUI();
+  //newMap();
   loadLastMap();
 }
 
@@ -23,17 +24,17 @@ public void update() {
 
 public void draw(){
   background(30);
+
   update();
+  ellipse(mouse.x, mouse.y, 10, 10);
 }
 
 public void controlEvent(ControlEvent theEvent) {
-  println(theEvent.getController().getName());
+  println("GUI Click: " + theEvent.getController().getName());
   int v;
+  map_controlEvent(theEvent);
+  /*
   switch(theEvent.getController().getName()) {
-    case "Load Map":
-      clearSVG();
-      selectSVG();
-    break;
     case "npc":
       v = int(theEvent.getController().getValue());
       updateQuestBox(v);
@@ -44,6 +45,7 @@ public void controlEvent(ControlEvent theEvent) {
       updateDialogBox(v);
     break;
   }
+  */
 }
 
 void keyPressed() {
@@ -80,6 +82,8 @@ void setDialogGUI(){
 
 void updateGUI() {
   float _f = frameRate;
+
+  updateMapGUI();
   mapGUI.getController("FPS").setCaptionLabel(String.format("%.2f", frameRate) + "FPS");
 }
 
@@ -91,4 +95,5 @@ void fileSelected(File selection) {
     println("User selected " + selection.getAbsolutePath());
     mapFile = selection.getAbsolutePath();
   }
+  loop();
 }

@@ -31,6 +31,7 @@ public void setup(){
   
   mouse = new PVector(mouseX, mouseY);
   setMapGUI();
+  //newMap();
   loadLastMap();
 }
 
@@ -43,27 +44,28 @@ public void update() {
 
 public void draw(){
   background(30);
+
   update();
+  ellipse(mouse.x, mouse.y, 10, 10);
 }
 
 public void controlEvent(ControlEvent theEvent) {
-  println(theEvent.getController().getName());
+  println("GUI Click: " + theEvent.getController().getName());
   int v;
+  map_controlEvent(theEvent);
+  /*
   switch(theEvent.getController().getName()) {
-    case "Load Map":
-      clearSVG();
-      selectSVG();
-    break;
     case "npc":
-      v = PApplet.parseInt(theEvent.getController().getValue());
+      v = int(theEvent.getController().getValue());
       updateQuestBox(v);
     break;
     case "questName":
-      v = PApplet.parseInt(theEvent.getController().getValue());
+      v = int(theEvent.getController().getValue());
       println(v);
       updateDialogBox(v);
     break;
   }
+  */
 }
 
 public void keyPressed() {
@@ -100,6 +102,8 @@ public void setDialogGUI(){
 
 public void updateGUI() {
   float _f = frameRate;
+
+  updateMapGUI();
   mapGUI.getController("FPS").setCaptionLabel(String.format("%.2f", frameRate) + "FPS");
 }
 
@@ -111,6 +115,7 @@ public void fileSelected(File selection) {
     println("User selected " + selection.getAbsolutePath());
     mapFile = selection.getAbsolutePath();
   }
+  loop();
 }
 /*////////////////
 <image
@@ -133,9 +138,17 @@ public class GameObject {
   String  name;
   PVector pos;
   PVector size;
-  int xFlip = 1;
-  int yFlip = 1;
+  int     xFlip = 1;
+  int     yFlip = 1;
   PImage  t;
+
+  public GameObject(String path) {
+    this.t = loadImage(path);
+    this.path = path;
+    this.imageName = "New item no name lol"; //MUST BE CHANGED
+    this.pos = new PVector(mouseX, mouseY);
+    this.size = new PVector(t.width, t.height);
+  };
 
   public GameObject(XML raw) {
     this.raw  = raw;
@@ -143,14 +156,16 @@ public class GameObject {
     this.imageName = raw.getString("xlink:href");
     this.pos = new PVector(raw.getFloat("x"), raw.getFloat("y"));
     this.size = new PVector(raw.getFloat("width"), raw.getFloat("height"));
+    this.t = loadImage(this.path);
     if(raw.hasAttribute("transform")) {
       String transform = raw.getString("transform");
       if (transform.equals("scale(-1,1)")) {
-        xFlip = -1;
-        pos.x = -pos.x;
+        this.xFlip = -1;
+        this.pos.x = -pos.x;
+
       }
     }
-    t = loadImage(this.path);
+
   }
 
   public void cleanXML() {
@@ -162,9 +177,18 @@ public class GameObject {
     float _x = this.pos.x;
     float _y = this.pos.y;
 
-    if(xFlip == -1)
+    if(xFlip == -1) {
       _x = -this.pos.x;
-
+      if(!this.raw.hasAttribute("transform")) {
+        this.raw.addChild("transform");
+        this.raw.setString("transform", "scale(-1,1)");
+      }
+    } else {
+      if(this.raw.hasAttribute("transform")) {
+        XML c = this.raw.getChild("transform");
+        this.raw.removeChild(c);
+      }
+    }
     this.raw.setFloat("x", _x);
     this.raw.setFloat("y", _y);
   }
@@ -238,28 +262,38 @@ public void updateDialogBox(int index) {
 }
 static final int NOT_LOADED     = -1;
 static final int IDLE           = 0;
-static final int MOVING         = 1;
+static final int SELECTED       = 1;
 static final int RELEASE        = 2;
 static final int TRANSLATE_MAP  = 3;
 
 static final int DONE       = 0;
-static final int UPDATED    = 1;
+static final int UPDATE     = 1;
 static final int CLEAR      = 2;
 
 XML xml;
 XML objectData[];
 
+int     bg          = 0xff422084;
+int     textColor   = 0xff26968E;
+int     hint        = 0xffF4BA3E;
+
 PGraphics g;
-PVector   mapTranslate  = new PVector();
+PVector   mapTranslate  = new PVector(0, 0);
 int       toolMode      = NOT_LOADED;
 int       renderMode    = DONE;
+boolean   renderGrid    = true;
 boolean   mapLoaded     = false;
 int       mapX, mapY;
 
 String    mapFile;
+String    objectFile;
 
 ArrayList<GameObject> objects = new ArrayList<GameObject>();
-GameObject selectedObject;
+GameObject            selectedObject;
+
+public void newMap() {
+  mapFile = "data/template.svg";
+}
 
 public void loadLastMap(){
   mapFile = "data/map_hideout.svg";
@@ -267,6 +301,7 @@ public void loadLastMap(){
 
 public void selectSVG() {
   selectInput("Select a .SVG file.", "fileSelected");
+  noLoop();
 }
 
 public void clearSVG() {
@@ -296,7 +331,7 @@ public void loadSVG(String mapName) {
   }
   mapLoaded   = true;
   toolMode    = IDLE;
-  renderMode  = UPDATED;
+  renderMode  = UPDATE;
   println("Map Loaded");
 }
 
@@ -325,6 +360,7 @@ public void saveSVG() {
   println("Map Saved!");
 }
 
+//MAP BASED/////////////////////////////////////////////
 public void setMapGUI(){
   int xSpacing = 2;
   int ySpacing = 2;
@@ -334,6 +370,11 @@ public void setMapGUI(){
   int fontColor = color(255);
 
   mapGUI = new ControlP5(this);
+  mapGUI.setColorBackground(color(100,100));
+  mapGUI.setColorCaptionLabel(textColor);
+  mapGUI.setColorForeground(hint);
+  mapGUI.setColorActive(bg);
+
   mapGUI.addButton("Load Map")
   .setPosition((xSpacing + xSize) * 0, (ySpacing + ySize) * 0)
   .setSize(xSize, ySize);
@@ -344,14 +385,29 @@ public void setMapGUI(){
   .setPosition((xSpacing + xSize) * 2, (ySpacing + ySize) * 0)
   .setSize(xSize, ySize);
 
-
-
-  mapGUI.addButton("FPS")
+  mapGUI.addButton("Save Map")
   .setPosition((xSpacing + xSize) * 0, (ySpacing + ySize) * 1)
   .setSize(xSize, ySize);
   mapGUI.addButton("GameObject ID")
   .setPosition((xSpacing + xSize) * 1, (ySpacing + ySize) * 1)
   .setSize(xSize, ySize);
+  mapGUI.addButton("X")
+  .setPosition((xSpacing + xSize) * 2, (ySpacing + ySize) * 1)
+  .setSize(xSize, ySize);
+  mapGUI.addButton("Y")
+  .setPosition((xSpacing + xSize) * 3, (ySpacing + ySize) * 1)
+  .setSize(xSize, ySize);
+
+  mapGUI.addButton("FPS")
+  .setPosition((xSpacing + xSize) * 0, (ySpacing + ySize) * 2)
+  .setSize(xSize, ySize);
+}
+
+public void updateMapGUI(){
+  if(selectedObject != null) {
+    mapGUI.getController("X").setCaptionLabel("X:" + String.format("%.2f", selectedObject.pos.x));
+    mapGUI.getController("Y").setCaptionLabel("Y:" +String.format("%.2f", selectedObject.pos.y));
+  }
 }
 
 public void updateMap() {
@@ -360,9 +416,14 @@ public void updateMap() {
     loadSVG(mapFile);
   }
 
-  if(toolMode == MOVING) {
+  if(toolMode == SELECTED) {
     selectedObject.pos.x = mouseX - mouseDiff.x;
     selectedObject.pos.y = mouseY - mouseDiff.y;
+  }
+
+  if(toolMode == TRANSLATE_MAP) {
+    mapTranslate.x = mouseX - mouseDiff.x;
+    mapTranslate.y = mouseY - mouseDiff.y;
   }
 
   renderMap();
@@ -372,6 +433,8 @@ public void renderMap() {
   if(mapLoaded && renderMode != DONE) {
     g.beginDraw();
     g.background(5);
+    if(renderGrid)
+      renderGrid();
     for(GameObject o: objects) {
       g.pushMatrix();
       g.translate(o.pos.x, o.pos.y);
@@ -379,6 +442,8 @@ public void renderMap() {
       g.image(o.t, 0, 0);
       g.noStroke();
       g.fill(100,0,0,100);
+      if(o == selectedObject)
+        g.fill(0,0,100,100);
       g.rect(0, 0, o.size.x, o.size.y);
       g.popMatrix();
     }
@@ -396,88 +461,240 @@ public void renderMap() {
   }
 }
 
-public GameObject selectObject() {
+public void renderGrid() {
+  PVector angle     = new PVector(114, 49);
+  int gridOpacity   = 35;
+
+  angle.normalize();
+  angle.setMag(mapX * 3);
+
+  int     xSpacing   = 114 / 3;
+  int     ySpacing   = 49 / 3;
+  int i = 0;
+  float b1 = 0;
+  while(i < mapY || b1 < mapY) {
+    float a   = 0;
+    float b   = i;
+    float a1  = a + PApplet.parseInt(angle.x);
+    b1        = b - angle.y;
+    g.pushMatrix();
+    g.stroke(255, gridOpacity);
+    g.line(a, b,  a1, b1);
+    g.scale(-1, 1);
+    g.translate(-mapX, 0);
+    g.line(a, b,  a1, b1);
+    g.popMatrix();
+    /*
+    if(i > 0) {
+      b1 = -b + angle.y;
+
+      g.line(a, -b, a1, b1);
+    }
+    */
+    i += ySpacing;
+
+  }
+  /*
+  for(int i = 0; i < mapX/xSpacing * 3; i++) {
+    float a   = xSpacing * i;
+    float b   = 0;
+    float a1  = a - angle.x;
+    float b1  = b + angle.y;
+    g.stroke(255, gridOpacity);
+    g.line(a, b, a1, b1);
+    /*
+    if(i > 0) {
+      a1 = -a + angle.x;
+      //g.line(-a, b, a1, b1);
+    }
+
+  }
+  */
+}
+
+//OBJECT BASED//////////////////////////////////////////
+public GameObject  selectObject() {
+  PVector mSize = new PVector(1,1);
   for(int i = objects.size()-1; i > 0; i--) {
     GameObject o = objects.get(i);
       if(insideObject(mouse, o)){
         mapGUI.get(Button.class, "GameObject ID")
         .setCaptionLabel(o.imageName);
         mouseDiff = PVector.sub(mouse, o.pos);
-        toolMode = MOVING;
+        toolMode = SELECTED;
+        renderMode = UPDATE;
         return o;
       }
   }
   return null;
 }
 
+public GameObject  getSelectedObject() {
+  return selectedObject;
+}
+
+public void addObject() {
+  selectInput("Select a .PNG file.", "loadObject");
+  noLoop();
+}
+
+public void loadObject(File selection){
+  GameObject o = new GameObject(selection.getAbsolutePath());
+  objects.add(o);
+  loop();
+}
+
+//fix xflipped collision detection.
+public void changeDepth(int direction) {
+  int selectedIndex = 0;
+
+  for(int i = objects.size()-1; i > 0; i--) {
+    GameObject o = objects.get(i);
+    if(o == selectedObject)
+      selectedIndex = i;
+    if(insideObject(selectedObject, o)) {
+      if(o != selectedObject) {
+        println("Over " + o.imageName);
+        if(direction == 1 && i > selectedIndex) {
+            objects.add(i+1, selectedObject);
+            objects.remove(selectedObject);
+            renderMode = UPDATE;
+            break;
+        }
+        if(direction == -1 && i < selectedIndex) {
+            objects.add(i-1, selectedObject);
+            objects.remove(selectedObject);
+            renderMode = UPDATE;
+            break;
+        }
+      }
+    }
+  }
+}
+//INTERACTION///////////////////////////////////////////
 public void releaseObject() {
-  if(toolMode == MOVING)
+  if(toolMode == SELECTED)
     toolMode = IDLE;
 }
 
 public void mousePressed() {
-  if(toolMode == IDLE) {
-    selectedObject = selectObject();
+  if(!mapGUI.isMouseOver()) {
+    if(toolMode == IDLE) {
+      selectedObject = selectObject();
+    }
+    //if(toolMode == TRANSLATE_MAP)
   }
 }
 
 public void mouseReleased() {
-  if(toolMode == MOVING) {
-    releaseObject();
-    renderMode = UPDATED;
+  switch(toolMode) {
+    case SELECTED:
+      toolMode    = IDLE;
+      renderMode  = UPDATE;
+    break;
+    case TRANSLATE_MAP:
+      toolMode    = IDLE;
+    break;
   }
 }
 
 public void mouseDragged() {
-  if(selectedObject != null)
-    toolMode = MOVING;
-
   switch (toolMode) {
-    case MOVING:
-    renderMode = UPDATED;
+    case SELECTED:
+      renderMode = UPDATE;
     break;
-    /*
+
     case TRANSLATE_MAP:
-    mapTranslate = mouse;
+      renderMode = UPDATE;
     break;
-    */
   }
 }
 
 public void map_keyPressed(char key) {
-  renderMode = UPDATED;
+  renderMode = UPDATE;
   //toolMode = IDLE;
-  if(key == ' ' && keyPressed)
+  if(key == ' ' && keyPressed) {
+    mouseDiff = PVector.sub(mouse, mapTranslate);
     toolMode = TRANSLATE_MAP;
+  }
 
   if(key == 's' && keyPressed)
     saveSVG();
 
+  if(key == 'a' && keyPressed)
+    addObject();
+
   if(key == CODED) {
     switch (keyCode) {
       case 33: //page up
+        changeDepth(1);
       break;
 
       case 34: //page down
+        changeDepth(-1);
       break;
-    }
-  } else {
-    switch (key) {
-      case ' ':
+
+      case LEFT:
+      if(selectedObject != null)
+        selectedObject.pos.x -= 1;
+      break;
+      case RIGHT:
+      if(selectedObject != null)
+        selectedObject.pos.x += 1;
+      break;
+      case UP:
+      if(selectedObject != null)
+        selectedObject.pos.y -= 1;
+      break;
+      case DOWN:
+      if(selectedObject != null)
+        selectedObject.pos.y += 1;
       break;
     }
   }
 }
+
+public void map_controlEvent(ControlEvent theEvent){
+  renderMode = UPDATE;
+  println("MAP GUI Click: " + theEvent.getController().getName());
+  switch(theEvent.getController().getName()) {
+    case "Load Map":
+      clearSVG();
+      selectSVG();
+    break;
+    case "Save Map":
+      saveSVG();
+    break;
+    case "Add Object":
+      addObject();
+    break;
+    case "X":
+      if(selectedObject != null) {
+        selectedObject.xFlip *= -1;
+        selectedObject.pos.x -= selectedObject.size.x * selectedObject.xFlip;
+      }
+    break;
+    }
+}
+//assumes A is the topLeft corner, and size is botRight
+public boolean over(PVector a, PVector aSize, PVector b, PVector bSize) {
+  if (abs(a.x) > abs(b.x) && abs(a.x) < (abs(b.x) + bSize.x) &&
+      abs(a.y) > abs(b.y) && abs(a.y) < (abs(b.y) + bSize.y))
+    return true;
+  return false;
+}
+
+/*
 //a mouse b object
-public boolean inside(PVector a, PVector b, PVector size) {
-  if(abs(a.x) > abs(b.x) && abs(a.x) < abs(b.x) + abs(size.x)){
-    if(abs(a.y) > abs(b.y) && abs(a.y) < abs(b.y) + abs(size.y)){
+boolean inside(PVector a, PVector aSize, PVector b, PVector bSize) {
+  if(abs(a.x) > abs(b.x) && abs(a.x) < (abs(b.x) + size.x)){
+    if(abs(a.y) > abs(b.y) && abs(a.y) < (abs(b.y) + size.y)){
       return true;
     }
   }
   return false;
 }
-
+*/
 public boolean insideObject(PVector a, GameObject o) {
   if(o.xFlip == -1){
     if(abs(a.x) < abs(o.pos.x) && abs(a.x) > abs(o.pos.x) + (o.size.x * o.xFlip)){
@@ -493,7 +710,23 @@ public boolean insideObject(PVector a, GameObject o) {
   }
   return false;
 }
-  public void settings() {  size(1000, 1000, JAVA2D); }
+
+public boolean insideObject(GameObject a, GameObject o) {
+  if(o.xFlip == -1){
+    if(abs(a.pos.x) < abs(o.pos.x) && abs(a.pos.x) + (a.size.x * a.xFlip) > abs(o.pos.x) + (o.size.x * o.xFlip)){
+      if(abs(a.pos.y) > abs(o.pos.y) && abs(a.pos.y) < abs(o.pos.y) + (o.size.y)){
+        return true;
+      }
+    }
+  }
+  if(abs(a.pos.x) > abs(o.pos.x) && abs(a.pos.x) + (a.size.x * a.xFlip) < abs(o.pos.x) + (o.size.x * o.xFlip)){
+    if(abs(a.pos.y) > abs(o.pos.y) && abs(a.pos.y) < abs(o.pos.y) + (o.size.y * o.yFlip)){
+      return true;
+    }
+  }
+  return false;
+}
+  public void settings() {  size(1000, 1000, P2D); }
   static public void main(String[] passedArgs) {
     String[] appletArgs = new String[] { "reaperi_editor" };
     if (passedArgs != null) {
