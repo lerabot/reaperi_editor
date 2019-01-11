@@ -19,9 +19,12 @@ public class GameObject {
   String  name;
   PVector pos;
   PVector size;
+  boolean selected = false;
   int     xFlip = 1;
   int     yFlip = 1;
   PImage  t;
+
+  public GameObject(){};
 
   public GameObject(String path) {
     this.t = loadImage(path);
@@ -46,7 +49,21 @@ public class GameObject {
 
       }
     }
+  }
 
+  public GameObject(GameObject o) {
+    if (o != null) {
+      this.raw          = o.raw;
+      this.path         = o.path;
+      this.imageName    = o.imageName;
+      this.name         = o.name;
+      this.size         = o.size;
+      this.xFlip        = o.xFlip;
+      this.yFlip        = o.yFlip;
+      this.pos          = new PVector(mouse.x - (size.x/2 * xFlip), mouse.y - (size.y/2 * yFlip));
+
+      this.t            = o.t;
+      }
   }
 
   public void cleanXML() {
@@ -75,12 +92,19 @@ public class GameObject {
   }
 
   public void drawObject() {
-    /*
-    if (transform.equals("scale(-1,1)")) {
-      xFlip = -1;
-      pos.x = -pos.x;
+    g.pushMatrix();
+    g.translate(this.pos.x, this.pos.y);
+    g.scale(this.xFlip, this.yFlip);
+    g.image(this.t, 0, 0);
+    g.noStroke();
+    if(renderBox) {
+      if(this.selected)
+        g.fill(0,0,100,100);
+      else
+        g.fill(100,0,0,100);
+      g.rect(0, 0, this.size.x, this.size.y);
     }
-    */
+    g.popMatrix();
   }
 
   public void flipX() {

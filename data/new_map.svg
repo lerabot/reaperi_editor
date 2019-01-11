@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="750" id="svg8" inkscape:export-filename="/home/lerabot/___Projets/DC_reaperi_cycle/assets/map_hideout/map_hideout.png" inkscape:export-xdpi="96" inkscape:export-ydpi="96" inkscape:version="0.92.3 (2405546, 2018-03-11)" sodipodi:docname="map_hideout.svg" version="1.1" viewBox="0 0 1200 750" width="1200">
   <defs id="defs2"/>
-  <sodipodi:namedview bordercolor="#666666" borderopacity="1.0" id="base" inkscape:current-layer="layer1" inkscape:cx="675.00147" inkscape:cy="366.99011" inkscape:document-units="px" inkscape:measure-end="0,0" inkscape:measure-start="0,0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:snap-global="false" inkscape:window-height="1025" inkscape:window-maximized="1" inkscape:window-width="1920" inkscape:window-x="0" inkscape:window-y="0" inkscape:zoom="0.70710678" pagecolor="#ffffff" showgrid="false" units="px"/>
+  <sodipodi:namedview bordercolor="#666666" borderopacity="1.0" id="base" inkscape:current-layer="layer1" inkscape:cx="507.14286" inkscape:cy="591.42857" inkscape:document-units="mm" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:window-height="1025" inkscape:window-maximized="1" inkscape:window-width="1920" inkscape:window-x="0" inkscape:window-y="0" inkscape:zoom="0.35" pagecolor="#ffffff" showgrid="false" units="px"/>
   <metadata id="metadata5">
     <rdf:RDF>
       <cc:Work rdf:about="">
@@ -11,39 +11,42 @@
       </cc:Work>
     </rdf:RDF>
   </metadata>
-  <g>
+  <g id="layer1" inkscape:groupmode="layer" inkscape:label="Layer 1" transform="translate(0,-32.41665)">
     <image height="64" id="image1761" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/soussol_floor.png" style="image-rendering:optimizeSpeed" width="64" x="-367.71426" xlink:href="soussol_floor.png" y="245.14285"/>
     <image height="120" id="image1384-7" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/chandelier.png" style="image-rendering:optimizeSpeed" width="33" x="303.79016" xlink:href="chandelier.png" y="76.6788"/>
-    <image height="94" id="image1395" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/chaise.png" style="image-rendering:optimizeSpeed" width="55" x="234.66177" xlink:href="chaise.png" y="215.45433"/>
+    <image height="218" id="image887-3" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/new_mur2.png" style="image-rendering:optimizeSpeed" transform="scale(-1,1)" width="153" x="170.5" xlink:href="new_mur2.png" y="415.0"/>
+    <image height="218" id="image887" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/new_mur2.png" style="image-rendering:optimizeSpeed" width="153" x="171.5" xlink:href="new_mur2.png" y="416.0"/>
     <image height="120" id="image1384" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/chandelier.png" style="image-rendering:optimizeSpeed" transform="scale(-1,1)" width="33" x="-343.07693" xlink:href="chandelier.png" y="436.93228"/>
-    <image height="218" id="image887-3" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/new_mur2.png" style="image-rendering:optimizeSpeed" width="153" x="312.5" xlink:href="new_mur2.png" y="334.0"/>
     <image height="218" id="image887-3-6-5" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/new_mur2.png" style="image-rendering:optimizeSpeed" transform="scale(-1,1)" width="153" x="-479.55087" xlink:href="new_mur2.png" y="42.080555"/>
     <image height="80" id="image907-6" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/meuble_objet1.png" style="image-rendering:optimizeSpeed" transform="scale(-1,1)" width="97" x="-412.41736" xlink:href="meuble_objet1.png" y="167.30594"/>
     <image height="218" id="image887-3-6" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/new_mur2.png" style="image-rendering:optimizeSpeed" transform="scale(-1,1)" width="153" x="-613.24414" xlink:href="new_mur2.png" y="99.39047"/>
-    <image height="45" id="image1438" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/pile_livre_2.png" style="image-rendering:optimizeSpeed" width="85" x="408.7857" xlink:href="pile_livre_2.png" y="233.35713"/>
     <image height="218" id="image887-3-6-3" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/new_mur2.png" style="image-rendering:optimizeSpeed" width="153" x="862.4876" xlink:href="new_mur2.png" y="93.02651"/>
+    <image height="190" id="image1406-6" npcID="biblio2" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/biblio1_full.png" style="image-rendering:optimizeSpeed" transform="scale(-1,1)" width="121" x="-832.5" xlink:href="biblio1_full.png" y="110.0">
+      <transform/>
+    </image>
     <image height="218" id="image887-7-5" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/new_mur2.png" style="image-rendering:optimizeSpeed" width="153" x="728.2376" xlink:href="new_mur2.png" y="149.52652"/>
     <image height="218" id="image887-7" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/new_mur2.png" style="image-rendering:optimizeSpeed" transform="scale(-1,1)" width="153" x="-747.49414" xlink:href="new_mur2.png" y="155.89047"/>
-    <image height="190" id="image1406-6" npcID="biblio2" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/biblio1_full.png" style="image-rendering:optimizeSpeed" width="121" x="308.2913" xlink:href="biblio1_full.png" y="175.05835"/>
-    <image height="190" id="image1406" npcID="biblio3" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/biblio1_full.png" style="image-rendering:optimizeSpeed" width="121" x="487.27612" xlink:href="biblio1_full.png" y="196.50508"/>
+    <image height="190" id="image1406" npcID="biblio3" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/biblio1_full.png" style="image-rendering:optimizeSpeed" width="121" x="554.2761" xlink:href="biblio1_full.png" y="169.50508"/>
     <image height="32" id="image1373" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/lantern.png" style="image-rendering:optimizeSpeed" width="18" x="576.98676" xlink:href="lantern.png" y="154.56087"/>
     <image height="97" id="image1329" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/pile_livre_1.png" style="image-rendering:optimizeSpeed" width="48" x="649.3649" xlink:href="pile_livre_1.png" y="271.56348"/>
     <image height="97" id="image1329-0-0" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/pile_livre_1.png" style="image-rendering:optimizeSpeed" width="48" x="153.78685" xlink:href="pile_livre_1.png" y="140.35677"/>
-    <image height="190" id="image1406-6-6" npcID="biblio1" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/biblio1_full.png" style="image-rendering:optimizeSpeed" transform="scale(-1,1)" width="121" x="-657.6371" xlink:href="biblio1_full.png" y="294.81616"/>
+    <image height="190" id="image1406-6-6" npcID="biblio1" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/biblio1_full.png" style="image-rendering:optimizeSpeed" transform="scale(-1,1)" width="121" x="-173.63708" xlink:href="biblio1_full.png" y="89.81618"/>
     <image height="97" id="image1329-0" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/pile_livre_1.png" style="image-rendering:optimizeSpeed" transform="scale(-1,1)" width="48" x="-76.52792" xlink:href="pile_livre_1.png" y="192.8847"/>
     <image height="45" id="image1438-6" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/pile_livre_2.png" style="image-rendering:optimizeSpeed" transform="scale(-1,1)" width="85" x="-265.30756" xlink:href="pile_livre_2.png" y="603.28394"/>
-    <image height="218" id="image887" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/new_mur2.png" style="image-rendering:optimizeSpeed" width="153" x="410.25" xlink:href="new_mur2.png" y="338.5"/>
+    <image height="218" id="image887" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/new_mur2.png" style="image-rendering:optimizeSpeed" width="153" x="36.25" xlink:href="new_mur2.png" y="471.5"/>
     <image height="32" id="image1373-0" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/lantern.png" style="image-rendering:optimizeSpeed" width="18" x="105.97537" xlink:href="lantern.png" y="648.14844"/>
     <image height="32" id="image1708" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/pilescroll_2.png" style="image-rendering:optimizeSpeed" width="62" x="588.959" xlink:href="pilescroll_2.png" y="181.6118"/>
-    <image desc="This is where Muet prints all of the guild's scrolls." height="143" id="image1307" npcID="presse" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/presse.png" style="image-rendering:optimizeSpeed" width="182" x="47.714294" xlink:href="presse.png" y="129.92856"/>
     <image height="80" id="image907-6-7" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/meuble_objet1.png" style="image-rendering:optimizeSpeed" width="97" x="124.03405" xlink:href="meuble_objet1.png" y="596.1558"/>
     <image height="31" id="image1682-3" npcID="scroll_pile2" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/pilescroll.png" style="image-rendering:optimizeSpeed" width="44" x="162.79079" xlink:href="pilescroll.png" y="589.03827"/>
     <image height="73" id="image853" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/piedestal.png" style="image-rendering:optimizeSpeed" width="42" x="526.1428" xlink:href="piedestal.png" y="439.21426"/>
     <image height="80" id="image896-3" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/meuble_objet2.png" style="image-rendering:optimizeSpeed" width="97" x="871.5" xlink:href="meuble_objet2.png" y="249.5"/>
     <image height="80" id="image907" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/meuble_objet1.png" style="image-rendering:optimizeSpeed" width="97" x="800.5" xlink:href="meuble_objet1.png" y="279.5"/>
     <image height="39" id="image1146-3-5" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/tabouret.png" style="image-rendering:optimizeSpeed" width="25" x="889.0611" xlink:href="tabouret.png" y="371.89587"/>
+    <image height="94" id="image1395" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/chaise.png" style="image-rendering:optimizeSpeed" transform="scale(-1,1)" width="55" x="-293.5" xlink:href="chaise.png" y="220.0">
+      <transform/>
+    </image>
     <image height="91" id="image1135" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/table_vide.png" style="image-rendering:optimizeSpeed" transform="scale(-1,1)" width="135" x="-351.78574" xlink:href="table_vide.png" y="274.50003"/>
-    <image height="26" id="image963" npcID="s_mystere" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/scroll_aplat.png" style="image-rendering:optimizeSpeed" width="56" x="338.71432" xlink:href="scroll_aplat.png" y="357.85715"/>
+    <image height="26" id="image963" npcID="s_mystere" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/scroll_aplat.png" style="image-rendering:optimizeSpeed" width="56" x="257.71432" xlink:href="scroll_aplat.png" y="284.85715"/>
     <image height="23" id="image1249" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/pilescroll_3.png" style="image-rendering:optimizeSpeed" transform="scale(-1,1)" width="43" x="-273.99484" xlink:href="pilescroll_3.png" y="299.23157"/>
     <image height="39" id="image1146" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/tabouret.png" style="image-rendering:optimizeSpeed" width="25" x="478.92856" xlink:href="tabouret.png" y="460.5"/>
     <image height="39" id="image1146-3" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/tabouret.png" style="image-rendering:optimizeSpeed" width="25" x="568.9285" xlink:href="tabouret.png" y="426.21426"/>
@@ -61,7 +64,7 @@
     <image height="23" id="image1249-7" npcID="scroll_pile1" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/pilescroll_3.png" style="image-rendering:optimizeSpeed" transform="scale(-1,1)" width="43" x="-964.47736" xlink:href="pilescroll_3.png" y="376.61282"/>
     <image height="23" id="image1249-0" npcID="scroll_pile2" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/pilescroll_3.png" style="image-rendering:optimizeSpeed" transform="scale(-1,1)" width="43" x="-1013.7787" xlink:href="pilescroll_3.png" y="357.87555"/>
     <image height="42" id="image1412-3" npcID="pile1" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/pile_livre_3.png" style="image-rendering:optimizeSpeed" width="70" x="332.35855" xlink:href="pile_livre_3.png" y="159.01747"/>
-    <image height="31" id="image1036" npcID="cube" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/cube_mini.png" style="image-rendering:optimizeSpeed" width="28" x="438.81647" xlink:href="cube_mini.png" y="362.6582"/>
+    <image height="31" id="image1036" npcID="cube" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/cube_mini.png" style="image-rendering:optimizeSpeed" width="28" x="533.81647" xlink:href="cube_mini.png" y="423.6582"/>
     <image height="29" id="image886" npcID="book1" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/livre_ouvert_bleu.png" style="image-rendering:optimizeSpeed" width="63" x="1020.3768" xlink:href="livre_ouvert_bleu.png" y="380.29123"/>
     <image height="25" id="image897" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/livre_ouvert2_bleu.png" style="image-rendering:optimizeSpeed" width="53" x="1458.5485" xlink:href="livre_ouvert2_bleu.png" y="126.19215"/>
     <image height="218" id="image887-3-6-3-6" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/new_mur2.png" style="image-rendering:optimizeSpeed" transform="scale(-1,1)" width="153" x="-1224.8414" xlink:href="new_mur2.png" y="104.30595"/>
@@ -80,5 +83,34 @@
     <image height="65" id="image985" npcID="alchi1" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/alchi_2.png" style="image-rendering:optimizeSpeed" width="28" x="873.4597" xlink:href="alchi_2.png" y="222.61205"/>
     <image height="57" id="image944" npcID="alchi1" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/alchi_3.png" style="image-rendering:optimizeSpeed" width="14" x="858.6364" xlink:href="alchi_3.png" y="238.74797"/>
     <image height="38" id="image1753" npcID="broken_fiole" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/fiole_broken.png" style="image-rendering:optimizeSpeed" width="79" x="990.7545" xlink:href="fiole_broken.png" y="275.6232"/>
+    <image height="190" id="image1406-6" npcID="biblio2" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/biblio1_full.png" style="image-rendering:optimizeSpeed" transform="scale(-1,1)" width="121" x="-819.29126" xlink:href="biblio1_full.png" y="432.05835">
+      <transform/>
+    </image>
+    <image height="218" id="image887-3" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/new_mur2.png" style="image-rendering:optimizeSpeed" transform="scale(-1,1)" width="153" x="-472.5" xlink:href="new_mur2.png" y="414.0"/>
+    <image desc="This is where Muet prints all of the guild's scrolls." height="143" id="image1307" npcID="presse" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/presse.png" style="image-rendering:optimizeSpeed" width="182" x="239.71428" xlink:href="presse.png" y="531.9286"/>
+    <image height="45" id="image1438" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/pile_livre_2.png" style="image-rendering:optimizeSpeed" width="85" x="363.7857" xlink:href="pile_livre_2.png" y="602.3571"/>
+    <image height="190" id="image1406-6" npcID="biblio2" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/biblio1_full.png" style="image-rendering:optimizeSpeed" transform="scale(-1,1)" width="121" x="-724.5" xlink:href="biblio1_full.png" y="473.0">
+      <transform/>
+    </image>
+    <image height="218" id="image887-3-6-3" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/new_mur2.png" style="image-rendering:optimizeSpeed" transform="scale(-1,1)" width="153" x="-1068.5" xlink:href="new_mur2.png" y="486.0">
+      <transform/>
+    </image>
+    <image height="218" id="image887-3-6-3" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/new_mur2.png" style="image-rendering:optimizeSpeed" width="153" x="835.5" xlink:href="new_mur2.png" y="514.0"/>
+    <image height="94" id="image1395" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/chaise.png" style="image-rendering:optimizeSpeed" transform="scale(-1,1)" width="55" x="923.66174" xlink:href="chaise.png" y="635.45435"/>
+    <image height="218" id="image887-3-6-3" preserveAspectRatio="none" sodipodi:absref="/home/magnes-tower/Projets/DC Reaperi Cycle/assets/map_hideout/new_mur2.png" style="image-rendering:optimizeSpeed" transform="scale(-1,1)" width="153" x="-907.5" xlink:href="new_mur2.png" y="543.0">
+      <transform/>
+    </image>
   </g>
+  <defs id="defs2"/>
+  <sodipodi:namedview bordercolor="#666666" borderopacity="1.0" id="base" inkscape:current-layer="layer1" inkscape:cx="507.14286" inkscape:cy="591.42857" inkscape:document-units="mm" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:window-height="1025" inkscape:window-maximized="1" inkscape:window-width="1920" inkscape:window-x="0" inkscape:window-y="0" inkscape:zoom="0.35" pagecolor="#ffffff" showgrid="false" units="px"/>
+  <metadata id="metadata5">
+    <rdf:RDF>
+      <cc:Work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <dc:title/>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g/>
 </svg>

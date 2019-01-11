@@ -4,29 +4,35 @@ import java.util.*;
 ControlP5 cp5;
 ControlP5 mapGUI;
 PVector   mouse;
+PVector   pmouse;
 PVector   mouseDiff = new PVector();
 
 
 public void setup(){
   size(1000, 1000, P2D);
+  surface.setResizable(true);
   mouse = new PVector(mouseX, mouseY);
+  pmouse = new PVector(mouseX, mouseY);
   setMapGUI();
   //newMap();
   loadLastMap();
 }
 
 public void update() {
-  mouse.x = mouseX;
-  mouse.y = mouseY;
   updateGUI();
   updateMap();
+
+  pmouse.x = mouse.x;
+  pmouse.y = mouse.y;
+  mouse.x = mouseX - mapTranslate.x;
+  mouse.y = mouseY - mapTranslate.y;
 }
 
 public void draw(){
   background(30);
-
   update();
-  ellipse(mouse.x, mouse.y, 10, 10);
+  renderMap();
+  renderLibrary();
 }
 
 public void controlEvent(ControlEvent theEvent) {
@@ -49,6 +55,7 @@ public void controlEvent(ControlEvent theEvent) {
 }
 
 void keyPressed() {
+  println("Key:" + key + " KeyCode:" + keyCode);
   map_keyPressed(key);
 }
 
