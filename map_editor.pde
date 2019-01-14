@@ -4,6 +4,7 @@ static final int SELECTED       = 1;
 static final int MULTI_SELECT   = 2;
 static final int TRANSLATE_MAP  = 3;
 static final int TRANSLATE_OBJ  = 4;
+static final int XML_INPUT      = 5;
 
 static final int DONE       = 0;
 static final int UPDATE     = 1;
@@ -26,6 +27,7 @@ boolean   renderGrid    = true;
 boolean   renderBox     = false;
 boolean   mapLoaded     = false;
 int       mapX, mapY;
+int       selectedIndex = 0;
 
 String    mapFile;
 String    objectFile;
@@ -39,7 +41,8 @@ void newMap() {
 }
 
 void loadLastMap(){
-  mapFile = "data/map_hideout.svg";
+  //mapFile = "data/template.svg";
+  mapFile = "data/map_temple.svg";
 }
 
 void selectSVG() {
@@ -71,6 +74,7 @@ void loadSVG(String mapName) {
   for(int i = 0; i < imageNum; i++) {
     objects.add(i, new GameObject(objectData[i]));
     GameObject o = objects.get(i);
+    o.depth = i;
     addToLibrary(o);
   }
   createLibrary(mapGUI);
@@ -156,9 +160,10 @@ void setMapGUI(){
 }
 
 void updateMapGUI(){
-  if(selectedObject != null) {
-    mapGUI.getController("X").setCaptionLabel("X:" + String.format("%.2f", selectedObject.pos.x));
-    mapGUI.getController("Y").setCaptionLabel("Y:" +String.format("%.2f", selectedObject.pos.y));
+  if(selectedObjects.size() > 0) {
+    GameObject o = getActiveObject();
+    mapGUI.getController("X").setCaptionLabel("X:" + String.format("%.2f", o.pos.x));
+    mapGUI.getController("Y").setCaptionLabel("Y:" + String.format("%.2f", o.pos.y));
   }
 }
 
@@ -286,32 +291,36 @@ GameObject  selectObject() {
       if(insideObject(mouse, o)){
         if(o.selected) {
           selectedObjects.remove(o);
-          o.selected = false;
-          toolMode = SELECTED;
-          renderMode = UPDATE;
+          o.selected    = false;
+          toolMode      = SELECTED;
+          renderMode    = UPDATE;
           return null;
         }
+
         mapGUI.get(Button.class, "GameObject ID")
-        .setCaptionLabel(o.imageName);
-        o.selected = true;
-        toolMode = SELECTED;
-        renderMode = UPDATE;
+        .setCaptionLabel(o.filename);
+        o.updateXML();
+        o.showXML();
+        selectedIndex   = i;
+        o.selected      = true;
+        toolMode        = SELECTED;
+        renderMode      = UPDATE;
         return o;
       }
   }
   clearSelected();
-  renderMode = UPDATE;
-  toolMode = IDLE;
+  renderMode  = UPDATE;
+  toolMode    = IDLE;
   return null;
 }
 
 void printSelObjects() {
   if(selectedObjects.size() > 0) {
-    println("==Selected Objects==");
+    println("-- Selected Objects --");
     for(GameObject o: selectedObjects) {
-      println(o.imageName);
+      println(o.filename);
     }
-    println("===================");
+    //println("===================");
   }
 }
 
@@ -332,42 +341,66 @@ void addObject() {
 void loadObject(File selection){
   GameObject o = new GameObject(selection.getAbsolutePath());
   objects.add(o);
+  o.depth = objects.size()-1;
+  o.updateXML();
+  o.showXML();
+  addToLibrary(o);
   loop();
 }
 
 //fix xflipped collision detection.
-void changeDepth(int direction) {
-  int selectedIndex = 0;
+int changeDepth(int direction) {
   int target = -1;
+  int depth = -1;
+  if(selectedObjects.size() == 0)
+    return -1;
+
+  GameObject lastSelected = selectedObjects.get(selectedObjects.size()-1);
+
+  //DE CEUX PROCHE DE NOUS, AUX PLUS RECULÉS
   for(int i = objects.size()-1; i > 0; i--) {
     GameObject o = objects.get(i);
-    if (o == selectedObject)
-      selectedIndex = i;
-    if(touching(selectedObject, o)) {
-      if(direction == 1) {
-        println("Moving over " + o.imageName);
-        objects.add(i+1, selectedObject);
-        objects.remove(selectedObject);
-        renderMode = UPDATE;
-        break;
-      }
-      if(direction == -1) {
-        target = i;
-        //break;
+
+    if((direction == -1 && selectedIndex > i) || (direction == 1 && selectedIndex < i)) {
+      if(touching(lastSelected, o)) {
+        depth = i + direction;
+        println("Selected  " + o.filename + " at depth " + selectedIndex);
+        println("Touching " + o.filename + " at depth " + i);
+        println("Adding "   + lastSelected.filename + " at depth " + depth);
+        GameObject newCopy = new GameObject(lastSelected);
+        newCopy.copyPosition(lastSelected);
+        newCopy.depth = depth;
+        newCopy.updateXML();
+        newCopy.showXML();
+        objects.add(depth, newCopy);
+        objects.remove(lastSelected);
+        selectedObjects.remove(lastSelected);
+        selectedObjects.add(newCopy);
+        selectedIndex = depth;
+        return depth;
       }
     }
   }
-  if (target != -1) {
-    target = constrain(target, 0, objects.size()-1);
-    println("Moving under " + target);
-    objects.add(target, new GameObject(selectedObject));
-    GameObject t = objects.get(target);
-    t.pos = selectedObject.pos;
-    objects.remove(selectedObject);
-    selectedObject = t;
-    renderMode = UPDATE;
+  return depth;
+}
+
+void flipObject(char axis) {
+  for(GameObject o: selectedObjects) {
+    if(axis == 'x') {
+      o.xFlip *= -1;
+      o.pos.x -= o.size.x * o.xFlip;
+    }
   }
 }
+
+GameObject getActiveObject() {
+  return objects.get(selectedIndex);
+}
+
+void updateScreen() {
+  renderMode = UPDATE;
+}
+
 
 void testTouch() {
 
@@ -383,14 +416,20 @@ void releaseObject() {
     toolMode = IDLE;
 }
 
-void mousePressed() {
+void map_mousePressed() {
+
+
+
   if(!mapGUI.isMouseOver()) {
     if(toolMode == IDLE) {
       if(!(keyCode == SHIFT && keyPressed))
         clearSelected();
       GameObject o = selectObject();
-      if(o != null)
+      if(o != null) {
         selectedObjects.add(o);
+        //selectedObject = o;
+      }
+
 
       printSelObjects();
     }
@@ -431,43 +470,39 @@ void mouseDragged() {
 
 void map_keyPressed(char key) {
   renderMode = UPDATE;
-
-  if(key == 'd' && keyPressed) {
-    if(selectedObjects.size() > 0)
-      for(GameObject o: selectedObjects)
-        objects.add(new GameObject(o));
-  }
-  if(key == 't' && keyPressed) {
-    testTouch();
-  }
-
-  if(key == 's' && keyPressed)
-    saveSVG();
-
-  if(key == 'a' && keyPressed)
-    addObject();
-
-  if((key == DELETE || key == BACKSPACE) && keyPressed) {
-    if(selectedObject!= null) {
-      objects.remove(selectedObject);
-      selectedObject = null;
+  if(toolMode != XML_INPUT) {
+    if(key == 'x' && keyPressed)
+      flipObject('x');
+    if(key == 'd' && keyPressed) {
+      if(selectedObjects.size() > 0)
+        for(GameObject o: selectedObjects)
+          objects.add(new GameObject(o));
     }
-  }
+    if(key == 't' && keyPressed) {
+      testTouch();
+    }
 
-  if(key == 'i' && keyPressed)
-    changeDepth(1);
-  if(key == 'o' && keyPressed)
-    changeDepth(-1);
-    /*
-  if(keyCode == SHIFT && keyPressed) {
-    toolMode = MULTI_SELECT;
+    if(key == 's' && keyPressed)
+      saveSVG();
+
+    if(key == 'a' && keyPressed)
+      addObject();
+
+    if((key == DELETE || key == BACKSPACE) && keyPressed) {
+      for(GameObject o: selectedObjects)
+        objects.remove(o);
+      selectedObjects.clear();
+    }
+
+    if(key == 'i' && keyPressed)
+      changeDepth(1);
+    if(key == 'o' && keyPressed)
+      changeDepth(-1);
   }
-  */
 }
 
 void map_controlEvent(ControlEvent theEvent){
   renderMode = UPDATE;
-  println("MAP GUI Click: " + theEvent.getController().getName());
   switch(theEvent.getController().getName()) {
     case "Load Map":
       clearSVG();
@@ -486,10 +521,16 @@ void map_controlEvent(ControlEvent theEvent){
       renderGrid = !renderGrid;
     break;
     case "X":
+      for(GameObject o: selectedObjects) {
+        o.xFlip *= -1;
+        o.pos.x -= o.size.x * o.xFlip;
+      }
+      /*
       if(selectedObject != null) {
         selectedObject.xFlip *= -1;
         selectedObject.pos.x -= selectedObject.size.x * selectedObject.xFlip;
       }
+      */
     break;
     }
 }

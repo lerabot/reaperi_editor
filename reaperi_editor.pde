@@ -3,17 +3,20 @@ import java.util.*;
 
 ControlP5 cp5;
 ControlP5 mapGUI;
+ControlP5 xmlAtt;
 PVector   mouse;
 PVector   pmouse;
 PVector   mouseDiff = new PVector();
 
 
 public void setup(){
-  size(1000, 1000, P2D);
+  size(1000, 600, P2D);
   surface.setResizable(true);
   mouse = new PVector(mouseX, mouseY);
   pmouse = new PVector(mouseX, mouseY);
   setMapGUI();
+  setXMLGUI();
+
   //newMap();
   loadLastMap();
 }
@@ -36,27 +39,23 @@ public void draw(){
 }
 
 public void controlEvent(ControlEvent theEvent) {
-  println("GUI Click: " + theEvent.getController().getName());
-  int v;
+  println("Event Click: " + theEvent.getController().getName());
+
   map_controlEvent(theEvent);
-  /*
-  switch(theEvent.getController().getName()) {
-    case "npc":
-      v = int(theEvent.getController().getValue());
-      updateQuestBox(v);
-    break;
-    case "questName":
-      v = int(theEvent.getController().getValue());
-      println(v);
-      updateDialogBox(v);
-    break;
-  }
-  */
+  library_controlEvent(theEvent);
+  xml_controlEvent(theEvent);
 }
 
 void keyPressed() {
   println("Key:" + key + " KeyCode:" + keyCode);
   map_keyPressed(key);
+  xml_keyPressed(key);
+  library_keyPressed(key);
+}
+
+void mousePressed() {
+  xml_mousePressed();
+  map_mousePressed();
 }
 
 void setDialogGUI(){
